@@ -12,7 +12,8 @@ module Dossier
     def each
       yield headers.to_csv if headers?
       collection.each do |record|
-        yield record.to_csv( force_quotes: true, row_sep: "\n\r" )
+        #yield record.to_csv( force_quotes: true, row_sep: "\n\r" )
+        yield record.to_csv( force_quotes: true )
       end
     rescue => e
       if Rails.application.config.consider_all_requests_local
